@@ -1,4 +1,4 @@
-let weatherId = "2b30f8c7d1851af94d11392028166c99";
+let apiKey = "2b30f8c7d1851af94d11392028166c99";
 let cities = [];
 
 let prevSearches = document.getElementById('prev-searches');
@@ -14,11 +14,11 @@ function saveCities() {
 
 function renderCities() {
     for (var i = 0; i < cities.length; i++) {
-        let city = cities[i];
+        let city = localStorage.getItem("prevCities")
         
         var li = $('<li>');
         li.attr("id", "city-list")
-        li.text(city[i])
+        li.text(city)
 
         prevSearches.append(li);
     }
@@ -35,4 +35,6 @@ searchBtn.addEventListener("click", function(event){
 })
 
 //Load Weather API
+
+
 
