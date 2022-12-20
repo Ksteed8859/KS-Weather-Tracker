@@ -52,12 +52,14 @@ function todayWeather() {
     })
 
     .then(function(data) {
-
+    
+    currentCity.textContent = searchBar.value
     currentTemp.textContent = data.main.temp + " °F";
     currentWind.textContent = data.wind.speed + " MPH";
     currentHumidity.textContent = data.main.humidity + " %";
   });
 }
+
 
 //Display Upcoming Forecast for the Next 5 Days
 function upcomingForecast() {
@@ -91,18 +93,41 @@ function upcomingForecast() {
 
 
 function saveSearch() {
-    localStorage.setItem("recent-searches", JSON.stringify(cities))
+    localStorage.setItem("prev-searches", JSON.stringify(cities))
 }
 
 searchBtn.addEventListener('click', function(event) {
   event.preventDefault();
 
+  
   let newsearch = searchBar.value;
   cities.push(newsearch);
   
- todayWeather();
- upcomingForecast();
+  saveSearch(); 
+  displaySearches();
+  todayWeather();
+  upcomingForecast();
+
+  console.log(cities)
 })
+
+function displaySearches() {
+  let searchHistory = document.getElementById('prev-searches');
+  let search = searchBar.value
+  let li = document.createElement('li');
+  let button = document.createElement('button');
+  let link = document.createTextNode(search);
+  
+  button.appendChild(link);
+
+  li.appendChild(button);
+
+  searchHistory.appendChild(li);
+}
+
+
+
+
 
 
 
