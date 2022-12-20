@@ -59,6 +59,7 @@ function todayWeather() {
   });
 }
 
+
 //Display Upcoming Forecast for the Next 5 Days
 function upcomingForecast() {
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchBar.value}&appid=${apiKey}&units=imperial`)
@@ -91,18 +92,39 @@ function upcomingForecast() {
 
 
 function saveSearch() {
-    localStorage.setItem("recent-searches", JSON.stringify(cities))
+    localStorage.setItem("prev-searches", JSON.stringify(cities))
 }
 
 searchBtn.addEventListener('click', function(event) {
   event.preventDefault();
 
+  
   let newsearch = searchBar.value;
   cities.push(newsearch);
   
- todayWeather();
- upcomingForecast();
+  saveSearch(); 
+  displaySearches();
+  todayWeather();
+  upcomingForecast();
+
+  console.log(cities)
 })
+
+function displaySearches() {
+  let searchHistory = document.getElementById('prev-searches');
+  let search = searchBar.value
+  let li = document.createElement('li');
+  let a = document.createElement('a');
+  let link = document.createTextNode(search);
+  
+  a.appendChild(link);
+  a.href = "";
+
+  li.appendChild(a);
+
+  searchHistory.appendChild(li);
+}
+
 
 
 
