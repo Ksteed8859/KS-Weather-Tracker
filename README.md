@@ -1,5 +1,6 @@
 # KS-Weather-Tracker
 
+
 ## Description
 
 This website is a wather app that allows users to type in any city and recieve information back about the current weather situation, as well as an upcoming forecast for the next 5 days. Using an API, this application is able to pull the current temperature, wind speed, and humidity and display it for the user to see. Below, it will also display the predicted forecast for the next 5 days. Students had to test their skills of HTML, CSS, Javascript, as well as fetching data from API's to sucessfully finish this project.
