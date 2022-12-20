@@ -52,7 +52,8 @@ function todayWeather() {
     })
 
     .then(function(data) {
-
+    
+    currentCity.textContent = searchBar.value
     currentTemp.textContent = data.main.temp + " °F";
     currentWind.textContent = data.wind.speed + " MPH";
     currentHumidity.textContent = data.main.humidity + " %";
@@ -114,16 +115,18 @@ function displaySearches() {
   let searchHistory = document.getElementById('prev-searches');
   let search = searchBar.value
   let li = document.createElement('li');
-  let a = document.createElement('a');
+  let button = document.createElement('button');
   let link = document.createTextNode(search);
   
-  a.appendChild(link);
-  a.href = "";
+  button.appendChild(link);
 
-  li.appendChild(a);
+  li.appendChild(button);
 
   searchHistory.appendChild(li);
 }
+
+
+
 
 
 

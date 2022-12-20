@@ -1,23 +1,61 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 header {
-    background-image: linear-gradient(to right,rgb(60, 60, 169), rgb(26, 26, 109));
+    background-image: linear-gradient(to right,rgb(109, 109, 233), rgb(26, 26, 109));
     color: white;
     text-align: center;
     padding: 1%;
 }
 
+main {
+    display: inline-flex;
+}
 #search-bar {
-    display: inline;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
 }
 
-#search-btn {
+#date, #current-forecast {
+    font-size: large;
+}
+
+#weather {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40%;
+    width: 110%;
+    height: 100%;
+    background-color: none;
+}
+
+
+.cards {
+    margin: 4px;
+    width: 50%;
+    background-color: rgb(39, 39, 70);
+    color: white;
+}
+
+button {
     background-color: rgb(44, 145, 227);
     color: white;
     border-color: transparent;
+    width: 25%;
+    padding: 2%;
 }
 
-#search-btn:hover {
+button:hover {
     background-color: rgb(99, 99, 179);
 }
 
+#date, #Day1, #Day2, #Day3, #Day4, #Day5 {
+    font-weight: bold;
+}
 
 
